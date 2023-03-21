@@ -1,6 +1,5 @@
 
-from collections import OrderedDict,defaultdict,Counter
-from collections.abc import Sequence
+from collections import OrderedDict,defaultdict,Sequence,Counter
 import math
 import numpy as np
 import os
@@ -122,7 +121,17 @@ dataset_size = dataset_size, shuffle=True, **kwargs)
 
   def get_labels(self):
     """See base class."""
-    return ["O", "B-MISC", "I-MISC",  "B-PER", "I-PER", "B-ORG", "I-ORG", "B-LOC", "I-LOC"]
+    return ["O",
+                 "U-QTY",
+                 "U-MEAS",
+                 "B-FOOD",
+                 "L-FOOD",
+                 "I-FOOD",
+                 "B-MEAS",
+                 "I-MEAS",
+                 "L-MEAS",
+                 "U-FOOD"]
+    # return ["O", "B-MISC", "I-MISC",  "B-PER", "I-PER", "B-ORG", "I-ORG", "B-LOC", "I-LOC"]
 
   def load_data(self, path, max_seq_len=512, max_examples=None, shuffle=False):
     docs = self.extract_docs(path)

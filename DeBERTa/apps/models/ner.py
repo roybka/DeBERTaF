@@ -65,3 +65,6 @@ class NERModel(NNModule):
         value = state_dict[k]
         del state_dict[k]
         state_dict[nk] = value
+from transformers import TokenClassificationPipeline, pipeline
+#
+# pipeline.ModelForTokenClassification()
